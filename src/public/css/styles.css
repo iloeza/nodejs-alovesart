@@ -1,0 +1,20 @@
+.fundas_opcion{
+    transition: transform .2s;
+}
+
+.fundas_opcion a {
+    color: black;
+}
+
+.fundas_opcion a:hover{
+    text-decoration: none;
+}
+
+.fundas_opcion:hover{
+    transform: scale(1.06);
+}
+
+.case-card ul{
+    list-style: none;
+    padding-inline-start: 0;
+}

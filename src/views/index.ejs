@@ -1,0 +1,29 @@
+<%- include('partials/_header.ejs'); %>
+<div class="container text-center mt-5">
+    <h2>Bienvenido a AsentLovesArt</h2>
+    <h2>¿Qué deseas hacer?</h2>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card fundas_opcion">
+                <a href="fundas/add">
+                    <div class="card-body">
+                        <h5 class="card-title">Agregar Funda</h5>
+                        <p class="card-text">Haz click aqui para agregar una funda nueva.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card fundas_opcion">
+                <a href="/fundas">
+                    <div class="card-body">
+                        <h5 class="card-title">Ver Fundas</h5>
+                        <p class="card-text">Usa esta opción para ver las fundas existentes.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer.ejs'); %>

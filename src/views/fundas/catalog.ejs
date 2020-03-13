@@ -1,0 +1,35 @@
+<%- include('../partials/_header.ejs'); %>
+<div class="container mt-5">
+    <h2 class="text-center" >Catalogo de fundas en existencia</h2>
+
+    <div class="row mt-5">
+        <% if (data) { %>
+        <% for(var i = 0; i < data.length; i++) {%>
+        <div class="col-12 col-lg-4 mb-5">
+            <div class="card case-card">
+                <img class="card-img-top" src="/uploads/<%= data[i].Imagen %>" alt="Card image cap">
+                <div class="card-body">
+                    <ul>
+                        <li>Modelo: <%= data[i].idMarca %></li>
+                        <li>Colores primarios: <%= data[i].Color %></li>
+                        <li>Stock: <%= data[i].Stock %></li>
+                    </ul>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success mr-3">Actualizar</button>
+                        <a href="/fundas/delete/<%= data[i].idProducto %>">
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <% } %>
+    </div>
+    <a href="/">
+        <button class="btn btn-success mt-5">Regresar al inicio</button>
+    </a>
+</div>
+
+
+<%- include('../partials/_footer.ejs'); %>
