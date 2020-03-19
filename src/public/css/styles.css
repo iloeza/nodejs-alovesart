@@ -1,3 +1,7 @@
+* {
+    font-family: 'Martel', serif;
+}
+
 .fundas_opcion{
     transition: transform .2s;
 }
@@ -17,4 +21,16 @@
 .case-card ul{
     list-style: none;
     padding-inline-start: 0;
+}
+
+.case-card img {
+    height: 348px;
+}
+
+
+
+@media (max-width: 576px){
+    .fundas_opcion .card-body{
+        min-height: 196px;
+    }
 }

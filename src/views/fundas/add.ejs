@@ -2,15 +2,15 @@
 <div class="container pt-5">
     <h2 class="text-center">Agregar nueva funda</h2>
     <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
             <form action="/fundas/added" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nMarca">Marca de telefono</label>
                     <input type="text" class="form-control" id="nMarca" name="idMarca" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="nColor">Colores primarios</label>
-                    <input type="text" class="form-control" id="nColor" name="Color" required>
+                    <label for="nModelo">Modelo</label>
+                    <input type="text" class="form-control" id="nModelo" name="Modelo" required>
                 </div>
                 <div class="form-group">
                     <label for="nDescripcion">Descripción</label>
@@ -22,9 +22,18 @@
                 </div>
                 <div class="form-group">
                     <label for="nImagen">Imagen</label>
-                    <input type="file" class="form-control-file" id="nImagen" name="Imagen"  required>
+                    <input type="file" class="form-control-file" id="nImagen" name="Imagen" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                    </div>
+                    <div class="col-6">
+                        <a href="/">
+                            <button type="button" class="btn btn-danger btn-block">Regresar</button>
+                        </a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

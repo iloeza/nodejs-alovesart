@@ -1,5 +1,5 @@
 <%- include('../partials/_header.ejs'); %>
-<div class="container mt-5">
+<div class="container my-5">
     <h2 class="text-center" >Catalogo de fundas en existencia</h2>
 
     <div class="row mt-5">
@@ -10,9 +10,10 @@
                 <img class="card-img-top" src="/uploads/<%= data[i].Imagen %>" alt="Card image cap">
                 <div class="card-body">
                     <ul>
-                        <li>Modelo: <%= data[i].idMarca %></li>
-                        <li>Colores primarios: <%= data[i].Color %></li>
+                        <li>Marca: <%= data[i].idMarca %></li>
+                        <li>Modelo: <%= data[i].Modelo %></li>
                         <li>Stock: <%= data[i].Stock %></li>
+                        <li>Descripción: <%= data[i].Descripcion %></li>
                     </ul>
                     <div class="d-flex justify-content-center">
                         <a href="/fundas/edit/<%= data[i].idProducto %>">
@@ -28,9 +29,11 @@
         <% } %>
         <% } %>
     </div>
-    <a href="/">
-        <button class="btn btn-success mt-5">Regresar al inicio</button>
-    </a>
+    <div class="d-flex justify-content-center">
+        <a href="/">
+            <button class="btn btn-success mt-5">Regresar al inicio</button>
+        </a>
+    </div>
 </div>
 
 

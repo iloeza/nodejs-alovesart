@@ -23,16 +23,15 @@ const upload = multer({
 }).single('Imagen');
 
 router.post('/added', upload, async (req, res) => {
-    const { idMarca, Color, Descripcion, Stock } = req.body;
+    const { idMarca, Descripcion, Stock, Modelo } = req.body;
     var Imagen = req.file.originalname;
     const new_case = {
         idMarca,
-        Color,
         Descripcion,
         Stock,
-        Imagen
+        Imagen,
+        Modelo
     }
-    console.log(new_case);
     await pool.query('INSERT INTO productos SET ?', [new_case]);
     res.render('fundas/added');
 })
@@ -66,16 +65,14 @@ router.get('/edit/:id', async (req, res) => {
 
 router.post('/edited/:id', async (req, res) => {
     const { id } = req.params;
-    console.log(id)
-    const { idMarca, Color, Descripcion, Stock } = req.body;
+    const { idMarca, Descripcion, Stock, Modelo } = req.body;
     //var Imagen = req.file.originalname;
     const edit_case = {
         idMarca,
-        Color,
         Descripcion,
-        Stock
+        Stock,
+        Modelo
     }
-    console.log(edit_case);
     await pool.query('UPDATE productos SET ? WHERE idProducto = ?', [edit_case, id]);
     res.render('fundas/edited');
 })
