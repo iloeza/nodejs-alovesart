@@ -1,0 +1,38 @@
+<%- include('../partials/_header.ejs'); %>
+<div class="container pt-5">
+    <h2 class="text-center">Editar funda</h2>
+    <% if (data) { %>
+    <% for(var i = 0; i < data.length; i++) {%>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form action="/fundas/edited/<%= data[i].idProducto %>" method="POST">
+                <div class="form-group">
+                    <label for="nMarca">Marca de telefono</label>
+                    <input type="text" class="form-control" value="<%= data[i].idMarca %>" id="nMarca" name="idMarca" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="nColor">Colores primarios</label>
+                    <input type="text" class="form-control" value="<%= data[i].Color %>" id="nColor" name="Color" >
+                </div>
+                <div class="form-group">
+                    <label for="nDescripcion">Descripción</label>
+                    <input type="text" class="form-control" value="<%= data[i].Descripcion %>" id="nDescripcion" name="Descripcion" >
+                </div>
+                <div class="form-group">
+                    <label for="nStock">Stock</label>
+                    <input type="number" class="form-control" value="<%= data[i].Stock %>" id="nStock" name="Stock">
+                </div>
+                <!-- <h2>Imagen actual</h2>>
+                <img class="card-img-top" src="/uploads/<%= data[i].Imagen %>" alt="Card image cap">
+                <div class="form-group mb-5">
+                    <label for="nImagen">Cambiar imagen</label>
+                    <input type="file" class="form-control-file" id="nImagen" name="Imagen">
+                </div> -->
+                <button type="submit" class="btn btn-success btn-block mb-5">Guardar</button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    <% } %>
+</div>
+<%- include('../partials/_footer.ejs'); %>

@@ -49,8 +49,34 @@ router.get('/', async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
-    console.log(id);
     await pool.query('DELETE FROM productos WHERE idProducto = ?', [id]);
     res.render('fundas/deleted');
+})
+
+router.get('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    await pool.query('SELECT * FROM productos WHERE idProducto = ?', [id], (err, productos) => {
+        if (err) throw err;
+        console.log(productos)
+        res.render('fundas/edit', {
+            data: productos
+        });
+    });
+})
+
+router.post('/edited/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log(id)
+    const { idMarca, Color, Descripcion, Stock } = req.body;
+    //var Imagen = req.file.originalname;
+    const edit_case = {
+        idMarca,
+        Color,
+        Descripcion,
+        Stock
+    }
+    console.log(edit_case);
+    await pool.query('UPDATE productos SET ? WHERE idProducto = ?', [edit_case, id]);
+    res.render('fundas/edited');
 })
 module.exports = router;

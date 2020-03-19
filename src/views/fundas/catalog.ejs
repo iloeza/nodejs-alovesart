@@ -15,7 +15,9 @@
                         <li>Stock: <%= data[i].Stock %></li>
                     </ul>
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success mr-3">Actualizar</button>
+                        <a href="/fundas/edit/<%= data[i].idProducto %>">
+                            <button type="button" class="btn btn-success mr-3">Actualizar</button>
+                        </a>
                         <a href="/fundas/delete/<%= data[i].idProducto %>">
                             <button type="button" class="btn btn-danger">Eliminar</button>
                         </a>
