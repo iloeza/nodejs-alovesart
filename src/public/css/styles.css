@@ -10,7 +10,7 @@
 
 .index_catalog {
     background-color: #FFD300;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .index__see-cat a {
