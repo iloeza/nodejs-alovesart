@@ -2,11 +2,15 @@ const express = require('express');
 const morgan = require('morgan');
 const hb = require('express-handlebars');
 const path = require('path');
+const pool = require('./database');
 const router = express.Router();
-
 
 //inicializaciones
 const app = express();
+
+//Public
+app.use(express.static(path.join(__dirname, '/public')));
+
 
 //Configuraciones
 app.set('port', process.env.PORT || 4000 );
@@ -25,16 +29,17 @@ app.use((req, res, next) => {
 });
 
 //Rutas
-router.get('/', (req, res) => {
-    res.render('main');
+
+app.get('/', async (req, res) => {
+    await pool.query('SELECT * FROM productos', (err, productos) => {
+        if (err) throw err;
+        res.render('index', {
+            data: productos
+        });
+    });
 })
-
-app.use(require('./routes'));
-app.use(require('./routes/authentication'));
-app.use('/fundas', require('./routes/fundas'));
-
-//Public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('./routes/routes'));
+app.use('/', require('./routes/api'));
 
 //Levantar servidor
 app.listen(app.get('port'), () =>{

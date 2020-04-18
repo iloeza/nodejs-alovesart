@@ -2,12 +2,43 @@
     font-family: 'Martel', serif;
 }
 
+.index_container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.index_catalog {
+    background-color: #FFD300;
+    height: 100vh;
+}
+
+.index__see-cat a {
+    color: black;
+}
+
+.btn-login {
+    border-color: green;
+    border-radius: 30px;
+}
+
+.btn-back {
+    height: 65px;
+    width: 100%;
+}
+
 .fundas_opcion{
     transition: transform .2s;
+    margin-bottom: 80px;
+}
+
+.fundas_opcion .card-body {
+    min-height: 124px;
 }
 
 .fundas_opcion a {
     color: black;
+    border: 1px solid gray;
 }
 
 .fundas_opcion a:hover{
@@ -34,3 +65,4 @@
         min-height: 196px;
     }
 }
+
