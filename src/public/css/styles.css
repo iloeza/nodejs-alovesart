@@ -61,8 +61,12 @@
 
 
 @media (max-width: 576px){
+    .fundas_opcion {
+        margin-bottom: 10px;
+    }
+
     .fundas_opcion .card-body{
-        min-height: 196px;
+        min-height: 120px;
     }
 }
 
