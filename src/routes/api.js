@@ -4,7 +4,8 @@ const pool = require('../database');
 const path = require('path');
 const multer = require('multer');
 
-router.get('/add', (req, res) => {
+
+router.get('/admin/add', (req, res) => {
     res.render('fundas/add')
 })
 
@@ -22,7 +23,7 @@ const upload = multer({
     }
 }).single('Imagen');
 
-router.post('/added', upload, async (req, res) => {
+router.post('/admin/added', upload, async (req, res) => {
     const { idMarca, Descripcion, Stock, Modelo } = req.body;
     var Imagen = req.file.originalname;
     const new_case = {
@@ -37,7 +38,7 @@ router.post('/added', upload, async (req, res) => {
 })
 
 
-router.get('/', async (req, res) => {
+router.get('/admin/catalog', async (req, res) => {
     await pool.query('SELECT * FROM productos', (err, productos) => {
         if (err) throw err;
         res.render('fundas/catalog', {
@@ -46,13 +47,13 @@ router.get('/', async (req, res) => {
     });
 })
 
-router.get('/delete/:id', async (req, res) => {
+router.get('/admin/delete/:id', async (req, res) => {
     const { id } = req.params;
     await pool.query('DELETE FROM productos WHERE idProducto = ?', [id]);
     res.render('fundas/deleted');
 })
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/admin/edit/:id', async (req, res) => {
     const { id } = req.params;
     await pool.query('SELECT * FROM productos WHERE idProducto = ?', [id], (err, productos) => {
         if (err) throw err;
@@ -63,7 +64,7 @@ router.get('/edit/:id', async (req, res) => {
     });
 })
 
-router.post('/edited/:id', async (req, res) => {
+router.post('/admin/edited/:id', async (req, res) => {
     const { id } = req.params;
     const { idMarca, Descripcion, Stock, Modelo } = req.body;
     //var Imagen = req.file.originalname;

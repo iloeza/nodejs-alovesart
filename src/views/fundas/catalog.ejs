@@ -1,6 +1,6 @@
 <%- include('../partials/_header.ejs'); %>
 <div class="container my-5">
-    <h2 class="text-center" >Catalogo de fundas en existencia</h2>
+    <h2 class="text-center" >Catálogo de fundas en existencia</h2>
 
     <div class="row mt-5">
         <% if (data) { %>
@@ -16,10 +16,10 @@
                         <li>Descripción: <%= data[i].Descripcion %></li>
                     </ul>
                     <div class="d-flex justify-content-center">
-                        <a href="/fundas/edit/<%= data[i].idProducto %>">
+                        <a href="/admin/edit/<%= data[i].idProducto %>">
                             <button type="button" class="btn btn-success mr-3">Actualizar</button>
                         </a>
-                        <a href="/fundas/delete/<%= data[i].idProducto %>">
+                        <a href="/admin/delete/<%= data[i].idProducto %>">
                             <button type="button" class="btn btn-danger">Eliminar</button>
                         </a>
                     </div>

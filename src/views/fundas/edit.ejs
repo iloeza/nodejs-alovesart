@@ -5,7 +5,7 @@
     <% for(var i = 0; i < data.length; i++) {%>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-4">
-            <form action="/fundas/edited/<%= data[i].idProducto %>" method="POST">
+            <form action="/admin/edited/<%= data[i].idProducto %>" method="POST">
                 <div class="form-group">
                     <label for="nMarca">Marca de telefono</label>
                     <input type="text" class="form-control" value="<%= data[i].idMarca %>" id="nMarca" name="idMarca" autofocus>
@@ -22,20 +22,14 @@
                     <label for="nStock">Stock</label>
                     <input type="number" class="form-control" value="<%= data[i].Stock %>" id="nStock" name="Stock">
                 </div>
-                <!-- <h2>Imagen actual</h2>
-                <img class="card-img-top" src="/uploads/<%= data[i].Imagen %>" alt="Card image cap">
-                <div class="form-group mb-5">
-                    <label for="nImagen">Cambiar imagen</label>
-                    <input type="file" class="form-control-file" id="nImagen" name="Imagen">
-                </div> -->
                 <div class="row">
                     <div class="col-6">
-                        <button type="submit" class="btn btn-success btn-block">Guardar</button>
-                    </div>
-                    <div class="col-6">
-                        <a href="/fundas">
+                        <a href="/admin/catalog">
                             <button type="button" class="btn btn-danger btn-block">Regresar</button>
                         </a>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success btn-block">Guardar</button>
                     </div>
                 </div>
             </form>
